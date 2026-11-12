@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Reseñas · Sí, Acepto</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#ffffff;--tinta:#2b2320;--texto:#59262f;--bordo:#5c1a22;--mute:#8a7570;--card:#fbf7f2;--crema:#f6f0ea;--oro:#b98d5f;--linea:rgba(43,35,32,.1);--verde:#e9efe6;--verde-t:#4e6b4a}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--texto);font-family:Montserrat,system-ui,sans-serif;font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.envoltura{max-width:880px;margin:0 auto;padding:0 18px 60px}
+.barra{display:flex;align-items:center;justify-content:space-between;padding:18px 0;border-bottom:1px solid var(--linea)}
+.marca{font-family:"Playfair Display",serif;font-style:italic;font-size:21px;color:var(--tinta);text-decoration:none}
+.volver{font-size:12.5px;font-weight:600;color:var(--tinta);text-decoration:underline;text-underline-offset:4px;background:none;border:0;cursor:pointer;font-family:inherit}
+.cab{text-align:center;padding:42px 0 26px}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
+h1{font-family:"Playfair Display",serif;font-style:italic;font-weight:400;font-size:clamp(28px,7vw,40px);line-height:1.15;color:var(--tinta);margin-top:10px;text-wrap:balance}
+.resumen{display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:center;background:var(--card);border:1px solid var(--linea);border-radius:24px;padding:24px;margin-bottom:26px}
+.resumen .num{font-family:"Playfair Display",serif;font-size:64px;line-height:1;color:var(--tinta)}
+.estrellas{color:var(--oro);letter-spacing:2px}
+.resumen small{display:block;font-size:12.5px;color:var(--mute);margin-top:2px}
+.dist{display:grid;gap:5px}
+.dist div{display:grid;grid-template-columns:22px 1fr 26px;gap:8px;align-items:center;font-size:12px;color:var(--mute)}
+.dist i{display:block;height:6px;border-radius:9px;background:#efe6dc;overflow:hidden}
+.dist i b{display:block;height:100%;background:var(--oro);border-radius:9px}
+.lista{columns:2 340px;column-gap:16px}
+.res{break-inside:avoid;background:#fff;border:1px solid var(--linea);border-radius:22px;padding:22px 20px;margin:0 0 16px;display:grid;gap:8px}
+.res h3{font-family:"Playfair Display",serif;font-style:italic;font-weight:400;font-size:19px;line-height:1.25;color:var(--tinta)}
+.res p{font-size:14px;color:var(--tinta)}
+.res .quien{display:flex;align-items:center;gap:10px;margin-top:6px}
+.ini{width:36px;height:36px;border-radius:99px;background:var(--crema);color:var(--bordo);display:flex;align-items:center;justify-content:center;font-family:"Playfair Display",serif;font-style:italic;font-size:14px;flex:none}
+.quien b{display:block;font-size:13px;color:var(--tinta);font-weight:600}
+.quien span{font-size:12px;color:var(--mute)}
+.ver{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;color:var(--verde-t);background:var(--verde);border-radius:99px;padding:2px 9px;margin-left:6px;vertical-align:middle}
+.final{text-align:center;margin-top:26px}
+.btn{display:inline-flex;justify-content:center;align-items:center;text-decoration:none;font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;border-radius:999px;padding:17px 28px;background:var(--bordo);color:#fff;border:0;cursor:pointer;font-family:inherit}
+@media (max-width:520px){.resumen{grid-template-columns:1fr;text-align:center;gap:8px}}
+</style></head>
+<body>
+<div class="envoltura">
+  <div class="barra"><span class="marca">Sí, Acepto</span><button class="volver" type="button" id="volver">← Volver</button></div>
+  <div class="cab">
+    <div class="eyebrow">Algunas de nuestras reseñas</div>
+    <h1>Lo que dicen quienes ya dieron el sí.</h1>
+  </div>
+  <div class="resumen solo">
+    <div class="num">4,9</div>
+    <div><div class="estrellas">★★★★★</div><small>Promedio de las opiniones de nuestras parejas. Acá van algunas de las más recientes.</small></div>
+  </div>
+  <div class="lista" id="lista"></div>
+  <div class="final"><button class="btn" type="button" id="elegir">Quiero mi invitación →</button></div>
+</div>
+<script>
+const R=[
+['¡Mucho más linda de lo que imaginábamos!','No puedo explicar lo hermosa que quedó nuestra invitación. Teníamos una idea en la cabeza y lograron hacerla realidad, incluso mejor de lo que esperábamos. Cada detalle estaba cuidado y los invitados no paraban de mandarnos mensajes preguntando dónde la habíamos hecho. ¡Estamos felices!','Valentina y Martín','8 de noviembre de 2026'],
+['¡Súper fácil y rápido!','La verdad, una experiencia de diez. Elegimos el diseño, pasamos nuestros datos y en muy poquito tiempo ya teníamos nuestra invitación lista. Quedó preciosa y fue mucho más sencillo de lo que pensábamos. ¡Gracias por todo! ❤️','Lucía y Javier','21 de octubre de 2026'],
+['Nuestros invitados quedaron fascinados','¡Fue un éxito total! Mandamos las invitaciones por WhatsApp y empezaron a llegarnos mensajes de todos lados. A nuestras familias les encantó, sobre todo las animaciones y poder confirmar asistencia desde la misma invitación. Es un detalle que hace que todo se sienta mucho más especial. ¡La volveríamos a elegir mil veces!','Carolina y Sebastián','14 de septiembre de 2026'],
+['Exactamente lo que soñábamos','Soy bastante detallista y tenía clarísimo cómo quería nuestra invitación. Me tuvieron una paciencia enorme con los cambios y siempre estuvieron dispuestos a ayudar. El resultado fue delicado, elegante y muy nosotros. Me emocioné cuando la vi terminada. ¡Gracias de corazón!','Florencia y Nicolás','3 de agosto de 2026'],
+['¡Una belleza!','Hermosa de principio a fin. La atención, el diseño, los detalles... todo. Recibimos un montón de cumplidos y hasta varias amigas me pidieron el contacto para sus bodas. ¡Súper recomendados! 😍','Sofía y Andrés','18 de julio de 2026'],
+['No dejamos de mirarla','¡Estamos enamorados de nuestra invitación! Es tan linda que cada tanto vuelvo a abrir el link solo para verla jajaja. Las animaciones, los colores, la música... todo quedó perfecto. Nunca pensé que una invitación digital pudiera ser tan especial.','Camila y Tomás','25 de junio de 2026'],
+['La mejor decisión','Al principio dudábamos si hacer invitaciones digitales o las tradicionales de papel, pero ahora estamos convencidos de que elegimos bien. Son hermosas, prácticas y nos facilitaron muchísimo la organización. Además, poder compartirlas con toda la familia en un segundo fue genial.','Mariana y Felipe','12 de mayo de 2026'],
+['¡Quedó divina!','Ay, qué emoción cuando nos mandaron el diseño terminado. 🥹 Era exactamente lo que quería. Súper delicado, romántico y con unos detalles preciosos. Mi mamá hasta lloró cuando la abrió. ¡Gracias por hacer algo tan lindo para nuestro día!','Julieta y Franco','24 de abril de 2026'],
+['Una atención increíble','Desde el primer mensaje fueron súper amables. Respondieron todas nuestras dudas, nos ayudaron a elegir el diseño y estuvieron pendientes de cada detalle. Se nota cuando alguien hace su trabajo con dedicación. La invitación quedó espectacular y todo el proceso fue facilísimo.','Paula y Gabriel','16 de marzo de 2026'],
+['¡Superó todas nuestras expectativas!','Queríamos algo diferente, que sorprendiera a nuestros invitados y que reflejara el estilo de nuestra boda. Y vaya si lo lograron. El diseño quedó elegante, moderno y con una presentación hermosa. Recibimos muchísimos mensajes felicitándonos. ¡Valió totalmente la pena!','Daniela y Alejandro','7 de febrero de 2026'],
+['El reservá la fecha más lindo','¡Nos encantó! Encargamos nuestro reservá la fecha y quedó incluso más bonito de lo que habíamos imaginado. Los colores, las ilustraciones y todos los pequeños detalles son preciosos. Ya estamos deseando hacer la invitación completa. ¡Mil gracias!','Martina y Diego','19 de enero de 2026'],
+['Todos nos preguntaron dónde la hicimos','No exagero cuando digo que casi todos nuestros invitados nos felicitaron por la invitación. 😂 Quedaron sorprendidos con lo original que era y lo fácil que resultaba encontrar toda la información. Nosotros felices porque además nos ahorramos un montón de trabajo. ¡La recomendamos muchísimo!','Agustina y Rodrigo','18 de diciembre de 2025'],
+['¡Valió cada centavo!','La invitación quedó espectacular. Teníamos una idea bastante específica y nos ayudaron a personalizarla hasta que quedó tal cual la queríamos. Todo el proceso fue muy agradable y el resultado se ve realmente elegante. Es de esos detalles que hacen que una boda empiece a sentirse especial incluso antes del gran día.','Victoria y Santiago','29 de noviembre de 2025'],
+['Una experiencia hermosa de principio a fin','¡No podemos estar más contentos! Desde que vimos los diseños supimos que queríamos algo así para nuestra boda. Elegimos uno que nos encantaba y lo adaptaron a nuestro estilo. La invitación quedó preciosa y nuestros familiares y amigos quedaron encantados. Gracias por la paciencia y por cuidar cada detalle. ❤️','Isabella y Mateo','12 de noviembre de 2025']];
+const esc=t=>t.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+document.getElementById('lista').innerHTML=R.map(([t,p,n,f])=>{const ini=n.split(' y ').map(x=>x[0]).join('&');
+  return `<article class="res"><span class="estrellas">★★★★★</span><h3>${esc(t)}</h3><p>${esc(p)}</p><div class="quien"><span class="ini">${ini}</span><div><b>${esc(n)}</b><span>${esc(f)}</span></div></div></article>`}).join('');
+const EMB=new URLSearchParams(location.search).has('embed')||window.parent!==window;
+if(EMB){document.getElementById('volver').style.display='none';}
+function volver(){ if(EMB){ parent.postMessage('resenas-cerrar','*'); return;} history.back(); }
+function comprar(){ if(EMB){ parent.postMessage('resenas-comprar','*'); return;} history.back(); }
+document.getElementById('volver').addEventListener('click',volver);
+document.getElementById('elegir').addEventListener('click',comprar);
+</script>
+</body></html>
